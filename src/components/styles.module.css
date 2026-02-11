@@ -71,4 +71,35 @@
   background-color: rgb(76 141 255);
   border: 1px rgba(0, 0, 0, 0.342) solid;
   cursor: pointer;
+  margin-bottom: 20px;
+}
+.clear-transaction__btn {
+  width: 100%;
+  padding: 3px;
+  background-color: rgb(76, 255, 100);
+  border: 1px rgba(0, 0, 0, 0.342) solid;
+  cursor: pointer;
+}
+.elem-transactions {
+  display: flex;
+  justify-content: space-between;
+  border: 1px rgba(0, 0, 0, 0.342) solid;
+  padding: 5px;
+}
+.elem-name {
+  font-size: 20px;
+}
+.elem-amount {
+  font-size: 20px;
+}
+.elem-delete {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  cursor: pointer;
+}
+.sum {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
