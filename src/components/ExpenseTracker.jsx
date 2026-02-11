@@ -2,13 +2,13 @@ import { useState } from "react";
 import styles from "./styles.module.css";
 import { MdDelete } from "react-icons/md";
 function ExpenseTracker() {
-  const [totalSum, setTotalSum] = useState(0);
   const [form, setForm] = useState({
     name: "",
     amount: "",
   });
   const [history, setHistory] = useState([]);
   const addTransaction = () => {
+    if (!form.name || !form.amount) return;
     const newTransaction = {
       id: crypto.randomUUID(),
       name: form.name,
@@ -21,12 +21,12 @@ function ExpenseTracker() {
     });
   };
   const positiveSum = history.reduce(
-    (acc, income) => (income.amount > 0 ? (acc += income.amount) : acc),
+    (acc, income) => (income.amount > 0 ? acc + income.amount : acc),
     0,
   );
   const negativeSum = history.reduce(
     (acc, expense) =>
-      expense.amount < 0 ? (acc += Math.abs(expense.amount)) : acc,
+      expense.amount < 0 ? acc + Math.abs(expense.amount) : acc,
     0,
   );
   const total = positiveSum - negativeSum;
@@ -66,7 +66,7 @@ function ExpenseTracker() {
               key={elem.id}
               style={{
                 borderRight:
-                  elem.amount > 0 ? "2px green solid" : "2px red solid",
+                  elem.amount > 0 ? "4px green solid" : "4px red solid",
               }}
               className={styles["elem-transactions"]}
             >
