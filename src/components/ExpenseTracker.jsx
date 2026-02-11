@@ -4,7 +4,7 @@ import HistoryTransaction from "./HistoryTransaction";
 import BalanceHeader from "./BalanceHeader";
 import IncomeExpense from "./IncomeExpense";
 import AddTransaction from "./AddTransaction";
-
+import ActiveButons from "./ActiveButons";
 function ExpenseTracker() {
   const [form, setForm] = useState({
     name: "",
@@ -68,18 +68,10 @@ function ExpenseTracker() {
           handleEnter={handleEnter}
           setForm={setForm}
         />
-        <button
-          className={styles["add-transaction__btn"]}
-          onClick={addTransaction}
-        >
-          Add transaction
-        </button>
-        <button
-          className={styles["clear-transaction__btn"]}
-          onClick={clearTransaction}
-        >
-          Clear transaction
-        </button>
+        <ActiveButons
+          addTransaction={addTransaction}
+          clearTransaction={clearTransaction}
+        />
       </div>
     </div>
   );
