@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import { MdDelete } from "react-icons/md";
 function ExpenseTracker() {
@@ -20,6 +20,15 @@ function ExpenseTracker() {
       amount: "",
     });
   };
+  useEffect(() => {
+    const saved = localStorage.getItem("history");
+    if (saved && saved !== "[]") {
+      setHistory(JSON.parse(saved));
+    }
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("history", JSON.stringify(history));
+  }, [history]);
   const positiveSum = history.reduce(
     (acc, income) => (income.amount > 0 ? acc + income.amount : acc),
     0,
