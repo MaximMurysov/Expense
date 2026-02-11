@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import styles from "./styles.module.css";
-import { MdDelete } from "react-icons/md";
+import HistoryTransaction from "./HistoryTransaction";
 import BalanceHeader from "./BalanceHeader";
 import IncomeExpense from "./IncomeExpense";
+
 function ExpenseTracker() {
   const [form, setForm] = useState({
     name: "",
@@ -57,30 +58,10 @@ function ExpenseTracker() {
       <div className={styles["expense-container"]}>
         <BalanceHeader total={total} />
         <IncomeExpense positiveSum={positiveSum} negativeSum={negativeSum} />
-        <div className={styles.history}>
-          <h4 className={styles["history-title"]}>History</h4>
-          {history.map((elem) => (
-            <div
-              key={elem.id}
-              style={{
-                borderRight:
-                  elem.amount > 0 ? "4px green solid" : "4px red solid",
-              }}
-              className={styles["elem-transactions"]}
-            >
-              <p className={styles["elem-name"]}>{elem.name}</p>
-              <div className={styles.sum}>
-                <p className={styles["elem-amount"]}>{elem.amount}</p>
-                <p
-                  className={styles["elem-delete"]}
-                  onClick={() => deleteTransaction(elem.id)}
-                >
-                  <MdDelete />
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <HistoryTransaction
+          deleteTransaction={deleteTransaction}
+          history={history}
+        />
         <div className={styles["add-transaction"]}>
           <h4 className={styles["transaction-title"]}>Add new transaction</h4>
           <div className={styles["transaction-category__container"]}>
