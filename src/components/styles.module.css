@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.expense {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.expense-container {
+  width: 400px;
+  height: 300px;
+  border: 1px rgba(0, 0, 255, 0.514) solid;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.expense-title {
+  margin-bottom: 20px;
+}
+.expense-balance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
