@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import { MdDelete } from "react-icons/md";
 import BalanceHeader from "./BalanceHeader";
+import IncomeExpense from "./IncomeExpense";
 function ExpenseTracker() {
   const [form, setForm] = useState({
     name: "",
@@ -55,17 +56,7 @@ function ExpenseTracker() {
     <div className={styles.expense}>
       <div className={styles["expense-container"]}>
         <BalanceHeader total={total} />
-
-        <div className={styles["income-expense"]}>
-          <div className={styles.income}>
-            <h4>INCOME</h4>
-            <p>$ {positiveSum.toFixed(2)}</p>
-          </div>
-          <div className={styles["expense-balance"]}>
-            <h4>EXPENSE</h4>
-            <p>$ {negativeSum.toFixed(2)}</p>
-          </div>
-        </div>
+        <IncomeExpense positiveSum={positiveSum} negativeSum={negativeSum} />
         <div className={styles.history}>
           <h4 className={styles["history-title"]}>History</h4>
           {history.map((elem) => (
