@@ -26,9 +26,25 @@ function ExpenseTracker() {
           </div>
         </div>
         <div className={styles.history}>
-          <h4>HISTORY</h4>
+          <h4 className={styles["history-title"]}>History</h4>
           {history.map((elem) => ({ elem }))}
         </div>
+        <div className={styles["add-transaction"]}>
+          <h4 className={styles["transaction-title"]}>Add new transaction</h4>
+          <div className={styles["transaction-category__container"]}>
+            <div className={styles["transaction-category"]}>
+              <p>Expense Category</p>
+              <input className={styles.input} type="text" />
+            </div>
+            <div className={styles["transaction-category"]}>
+              <p>Amount</p>
+              <input className={styles.input} type="text" />
+            </div>
+          </div>
+        </div>
+        <button className={styles["add-transaction__btn"]}>
+          Add transaction
+        </button>
       </div>
     </div>
   );
