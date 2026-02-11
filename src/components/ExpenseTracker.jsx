@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import { MdDelete } from "react-icons/md";
+import BalanceHeader from "./BalanceHeader";
 function ExpenseTracker() {
   const [form, setForm] = useState({
     name: "",
@@ -53,11 +54,8 @@ function ExpenseTracker() {
   return (
     <div className={styles.expense}>
       <div className={styles["expense-container"]}>
-        <h2 className={styles["expense-title"]}>Expense tracker</h2>
-        <div className={styles["expense-total__balance"]}>
-          <h3>Your balance</h3>
-          <p>$ {total.toFixed(2)}</p>
-        </div>
+        <BalanceHeader total={total} />
+
         <div className={styles["income-expense"]}>
           <div className={styles.income}>
             <h4>INCOME</h4>
